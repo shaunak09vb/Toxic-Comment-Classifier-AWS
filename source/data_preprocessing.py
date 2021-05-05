@@ -1,6 +1,3 @@
-# -------------------------------------------------------------------------
-#                           Import Libraries
-# -------------------------------------------------------------------------
 import numpy as np
 import pandas as pd
 import pickle
@@ -14,8 +11,7 @@ from config import *
 from data_cleaning import clean_text_column
 
 # -------------------------------------------------------------------------
-#                           Utility Functions
-# -------------------------------------------------------------------------
+
 def sum_of_columns(dataframe, columns):
     temp = 0
     for col in columns:
@@ -30,7 +26,7 @@ class DataPreprocess:
         self.doLoadExistingTokenizer = do_load_existing_tokenizer
         # -------------------------------------------------------------------------
         embeddings_index_fasttext = {}
-        with open(EMBEDDING_FILE_LOC,encoding='utf-8') as f:
+        with open(EMBEDDING_FILE_LOCATION,encoding='utf-8') as f:
             for line in f:
                 values = line.split()
                 word = values[0]
@@ -54,7 +50,7 @@ class DataPreprocess:
             tokenizer = Tokenizer(num_words=MAX_VOCAB_SIZE)
             tokenizer.fit_on_texts(processed_train_data)
         else:
-            with open(TOKENIZER_LOC, 'rb') as handle:
+            with open(TOKENIZER_LOCATION, 'rb') as handle:
                 tokenizer = pickle.load(handle)
         print('Data Tokenized-1')
         # -------------------------------------------------------------------------
@@ -67,7 +63,7 @@ class DataPreprocess:
         if not do_load_existing_tokenizer:
             # Save tokenizer
             print('Saving tokens ...')
-            with open(TOKENIZER_LOC, 'wb') as handle:
+            with open(TOKENIZER_LOCATION, 'wb') as handle:
                 pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
         # -------------------------------------------------------------------------
         self.X_t=pad_sequences(list_tokenized_train, maxlen=MAX_SEQUENCE_LENGTH, padding = 'post')
@@ -89,5 +85,5 @@ class DataPreprocess:
         print("Embedding Layer Created!")
         # -------------------------------------------------------------------------
                 
-#training_data = pd.read_csv(TRAINING_DATA_LOC)
+#training_data = pd.read_csv(TRAINING_DATA_LOCATION)
 #print(DataPreprocess(training_data,False))

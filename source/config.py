@@ -1,9 +1,6 @@
-# -------------------------------------------------------------------------
-#                               Configurations
-# -------------------------------------------------------------------------
 EMBEDDING_DIMENSION = 300
-EMBEDDING_FILE_LOC = '../model/wiki-news-300d-1M.vec'
-TRAINING_DATA_LOC = '../data/train.csv'
+EMBEDDING_FILE_LOCATION = 'wiki-news-300d-1M.vec'
+TRAINING_DATA_LOCATION = '../data/train.csv'
 TEST_DATA_LABEL = '../data/test_labels.csv'
 TEST_DATA_COMMENTS = '../data/test.csv'
 MAX_VOCAB_SIZE = 100000
@@ -19,5 +16,6 @@ DETECTION_CLASSES = [
     'insult',
     'identity_hate',
     'neutral']
-MODEL_LOC = '../model/toxicity_classifier.h5'
-TOKENIZER_LOC = '../model/tokenizer.pickle'
+
+MODEL_LOCATION = '/home/ubuntu/toxicity_classifier.h5'
+TOKENIZER_LOCATION = '/home/ubuntu/tokenizer.pickle'

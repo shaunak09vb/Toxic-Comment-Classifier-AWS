@@ -1,27 +1,16 @@
-# -------------------------------------------------------------------------
-#                           Import Libraries
-# -------------------------------------------------------------------------
 import click
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
 from keras.layers import Dense, Input, LSTM, Dropout
-#from keras.layers import Activation, Embedding
 from keras.layers import GlobalMaxPool1D
-#from keras.layers import Bidirectional
 from keras.models import Model
-#from keras.models import Sequential
-#from keras.layers import Conv1D, MaxPooling1D
-#from keras.layers import BatchNormalization
-#from keras import initializers, regularizers, constraints, optimizers, layers
 from keras.callbacks import ModelCheckpoint
 from sklearn.metrics import roc_auc_score
 
 from config import *
 from data_preprocessing import DataPreprocess
-# -------------------------------------------------------------------------
-#                   Build and Train the LSTM Model Architecture
 # -------------------------------------------------------------------------
 
 def build_lstm_model(data, target_classes, embedding_layer):
@@ -42,43 +31,43 @@ def build_lstm_model(data, target_classes, embedding_layer):
     # -------------------------------------------------------------------------
     model_1.summary()
     # -------------------------------------------------------------------------
-    checkpoint = ModelCheckpoint(filepath=MODEL_LOC,  # saves the 'best' model
-                                 monitor='val_loss',
-                                 save_best_only=True,
-                                 mode='min')
+    checkpoint = ModelCheckpoint(filepath=MODEL_LOCATION,  # saves the 'best' model
+                                  monitor='val_loss',
+                                  save_best_only=True,
+                                  mode='min',
+                                  save_weights_only=True)
     # -------------------------------------------------------------------------
     history = model_1.fit(data,
                         target_classes,
                         batch_size=BATCH_SIZE,
                         epochs=EPOCHS,
                         validation_split=VALIDATION_SPLIT,
-                        callbacks=[checkpoint],
                         verbose=1)
+    # -------------------------------------------------------------------------
+    model_1.save(MODEL_LOCATION)
     # -------------------------------------------------------------------------
     return model_1, history
 # -------------------------------------------------------------------------
-#                   Plotting the training history
-# -------------------------------------------------------------------------
 def plot_training_history(lstm_model, history, data, target_classes):
-    #  "Accuracy"
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.title('model accuracy')
-    plt.ylabel('accuracy')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'validation'], loc='upper left')
-    plt.savefig(r"C:\Users\shaun\OneDrive\Desktop\My_Files\Codes\Toxic_Comment_Gradio\plots\accuracy.jpeg")
-    plt.show()
+    # "Accuracy"
+    # plt.plot(history.history['accuracy'])
+    # plt.plot(history.history['val_accuracy'])
+    # plt.title('model accuracy')
+    # plt.ylabel('accuracy')
+    # plt.xlabel('epoch')
+    # plt.legend(['train', 'validation'], loc='upper left')
+    # plt.savefig(r"C:\Users\shaun\OneDrive\Desktop\My_Files\Codes\Toxic_Comment_Gradio\plots\accuracy.jpeg")
+    # plt.show()
 
-    # "Loss"
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('model loss')
-    plt.ylabel('loss')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'validation'], loc='upper left')
-    plt.savefig(r"C:\Users\shaun\OneDrive\Desktop\My_Files\Codes\Toxic_Comment_Gradio\plots\loss.jpeg")
-    plt.show()
+    # # "Loss"
+    # plt.plot(history.history['loss'])
+    # plt.plot(history.history['val_loss'])
+    # plt.title('model loss')
+    # plt.ylabel('loss')
+    # plt.xlabel('epoch')
+    # plt.legend(['train', 'validation'], loc='upper left')
+    # plt.savefig(r"C:\Users\shaun\OneDrive\Desktop\My_Files\Codes\Toxic_Comment_Gradio\plots\loss.jpeg")
+    # plt.show()
 
     # Print Average ROC_AUC_Score
     p = lstm_model.predict(data)
@@ -90,7 +79,7 @@ def plot_training_history(lstm_model, history, data, target_classes):
 
 
 @click.command()
-@click.option('--data', default=TRAINING_DATA_LOC, help="Training Data (CSV) Location")
+@click.option('--data', default=TRAINING_DATA_LOCATION, help="Training Data (CSV) Location")
 def execute(data):
     training_data = pd.read_csv(data)
 
@@ -102,8 +91,6 @@ def execute(data):
                           history,
                           preprocessing.X_t,
                           preprocessing.target_classes)
-# -------------------------------------------------------------------------
-#                               Main Execution
 # -------------------------------------------------------------------------
 if __name__ == '__main__':
     execute()
