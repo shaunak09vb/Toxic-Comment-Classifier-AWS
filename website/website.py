@@ -1,7 +1,3 @@
-import sys
-sys.path.append('../source')
-# -------------------------------------------------------------------------
-#                           Import Libraries
 # -------------------------------------------------------------------------
 import pickle
 
@@ -12,16 +8,12 @@ from keras.preprocessing.sequence import pad_sequences
 from config import *
 from data_cleaning import clean_text
 # -------------------------------------------------------------------------
-#                     Load Existing Model and Tokenizer
-# -------------------------------------------------------------------------
 
 lstm_model = load_model(MODEL_LOC)
 
 with open(TOKENIZER_LOC, 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-# -------------------------------------------------------------------------
-#                           Main Application
 # -------------------------------------------------------------------------
 
 def make_prediction(input_comment):
@@ -61,4 +53,5 @@ gr.Interface(fn=make_prediction,
              outputs="label",
              title=title,
              description=description,
-             server_name="0.0.0.0").launch(share=True)
+             server_name="0.0.0.0",
+             server_port=8080).launch()
