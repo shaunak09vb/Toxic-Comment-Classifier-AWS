@@ -49,25 +49,25 @@ def build_lstm_model(data, target_classes, embedding_layer):
     return model_1, history
 # -------------------------------------------------------------------------
 def plot_training_history(lstm_model, history, data, target_classes):
-    # "Accuracy"
-    # plt.plot(history.history['accuracy'])
-    # plt.plot(history.history['val_accuracy'])
-    # plt.title('model accuracy')
-    # plt.ylabel('accuracy')
-    # plt.xlabel('epoch')
-    # plt.legend(['train', 'validation'], loc='upper left')
-    # plt.savefig(r"C:\Users\shaun\OneDrive\Desktop\My_Files\Codes\Toxic_Comment_Gradio\plots\accuracy.jpeg")
-    # plt.show()
+     # "Accuracy"
+     plt.plot(history.history['accuracy'])
+     plt.plot(history.history['val_accuracy'])
+     plt.title('model accuracy')
+     plt.ylabel('accuracy')
+     plt.xlabel('epoch')
+     plt.legend(['train', 'validation'], loc='upper left')
+     plt.savefig('../accuracy.jpeg')
+     plt.show()
 
-    # # "Loss"
-    # plt.plot(history.history['loss'])
-    # plt.plot(history.history['val_loss'])
-    # plt.title('model loss')
-    # plt.ylabel('loss')
-    # plt.xlabel('epoch')
-    # plt.legend(['train', 'validation'], loc='upper left')
-    # plt.savefig(r"C:\Users\shaun\OneDrive\Desktop\My_Files\Codes\Toxic_Comment_Gradio\plots\loss.jpeg")
-    # plt.show()
+     # "Loss"
+     plt.plot(history.history['loss'])
+     plt.plot(history.history['val_loss'])
+     plt.title('model loss')
+     plt.ylabel('loss')
+     plt.xlabel('epoch')
+     plt.legend(['train', 'validation'], loc='upper left')
+     plt.savefig('../loss.jpeg')
+     plt.show()
 
     # Print Average ROC_AUC_Score
     p = lstm_model.predict(data)

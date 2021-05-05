@@ -46,7 +46,6 @@ class DataPreprocess:
         print("Data Assigned to Variable X and y!")
         # -------------------------------------------------------------------------
         if not do_load_existing_tokenizer:
-            # Convert the comments (strings) into integers
             tokenizer = Tokenizer(num_words=MAX_VOCAB_SIZE)
             tokenizer.fit_on_texts(processed_train_data)
         else:
@@ -61,7 +60,6 @@ class DataPreprocess:
         print(f'Found {len(word_index)} unique tokens')
         # -------------------------------------------------------------------------
         if not do_load_existing_tokenizer:
-            # Save tokenizer
             print('Saving tokens ...')
             with open(TOKENIZER_LOCATION, 'wb') as handle:
                 pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
