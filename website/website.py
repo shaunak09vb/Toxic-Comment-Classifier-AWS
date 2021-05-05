@@ -17,10 +17,7 @@ with open(TOKENIZER_LOC, 'rb') as handle:
 # -------------------------------------------------------------------------
 
 def make_prediction(input_comment):
-    """
-    Predicts the toxicity of the specified comment
-    :param input_comment: the comment to be verified
-    """
+
     input_comment = clean_text(input_comment)
     input_comment = input_comment.split(" ")
 
@@ -42,7 +39,7 @@ def make_prediction(input_comment):
         }
 
 
-comment = gr.inputs.Textbox(lines=17, placeholder="Enter your comment!!")
+comment = gr.inputs.Textbox(lines=20, placeholder="Enter your comment!!")
 
 title = "Toxic Comment Classifier"
 description = "This application uses a Long Short-Term Memory (LSTM) Recurrent Neural Network (RNN) " \
