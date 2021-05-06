@@ -38,6 +38,41 @@ To protect users from being exposed to offensive language on online forums or so
 
 `pip3 install -r requirements.txt`
 
+## Data Processing Steps
+
+- Remove special characters present in between text
+- Remove repeated characters
+- Convert data to lower-case
+- Remove numbers from the data
+- Remove punctuation
+- Remove whitespaces
+- Remove spaces in between words
+- Remove "\n"
+- Remove emojis
+- Remove non-english characters
+
+## Usage
+
+Locate the `source` directory and execute the following python files.
+
+* To create the model, run:
+
+`python3 model_training.py`
+
+* You can also provide your own data:
+
+`python3 model_training.py --data=csv_file_location`
+
+You can also view the NLP_Deep_Learning.ipynb file present in the `notebooks` directory to understand the step-by-step approach undertaken for this project. 
+
+## Website
+
+To run the hosted website, access the `website` directory and execute:
+
+`python3 website.py`
+
+The website will start on your local server which can be viewed in your desired browser. You can type in any comment and find out what toxicity the model predicts.
+
 ## Blog Link
 
 If you wish discover in detail, the steps taken by me for the implementation of the project. You can read my blog on <a href='https://towardsdatascience.com/toxic-comment-classification-using-lstm-and-lstm-cnn-db945d6b7986'>Medium</a>.
