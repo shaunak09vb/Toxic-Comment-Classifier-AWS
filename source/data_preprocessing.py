@@ -82,6 +82,3 @@ class DataPreprocess:
                                          name = 'embeddings')
         print("Embedding Layer Created!")
         # -------------------------------------------------------------------------
-                
-#training_data = pd.read_csv(TRAINING_DATA_LOCATION)
-#print(DataPreprocess(training_data,False))
