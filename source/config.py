@@ -1,5 +1,5 @@
 EMBEDDING_DIMENSION = 300
-EMBEDDING_FILE_LOCATION = 'wiki-news-300d-1M.vec'
+EMBEDDING_FILE_LOCATION = '../model/wiki-news-300d-1M.vec'
 TRAINING_DATA_LOCATION = '../data/train.csv'
 TEST_DATA_LABEL = '../data/test_labels.csv'
 TEST_DATA_COMMENTS = '../data/test.csv'
@@ -17,5 +17,5 @@ DETECTION_CLASSES = [
     'identity_hate',
     'neutral']
 
-MODEL_LOCATION = '/home/ubuntu/toxicity_classifier.h5'
-TOKENIZER_LOCATION = '/home/ubuntu/tokenizer.pickle'
+MODEL_LOCATION = '../model/toxicity_classifier.h5'
+TOKENIZER_LOCATION = '../model/tokenizer.pickle'
