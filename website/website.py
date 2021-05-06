@@ -9,9 +9,9 @@ from config import *
 from data_cleaning import clean_text
 # -------------------------------------------------------------------------
 
-lstm_model = load_model(MODEL_LOC)
+lstm_model = load_model(MODEL_LOCATION)
 
-with open(TOKENIZER_LOC, 'rb') as handle:
+with open(TOKENIZER_LOCATION, 'rb') as handle:
     tokenizer = pickle.load(handle)
 
 # -------------------------------------------------------------------------
