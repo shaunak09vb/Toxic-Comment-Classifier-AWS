@@ -75,7 +75,7 @@ The website will start on your local server which can be viewed in your desired 
 
 ## Blog Link
 
-If you wish discover in detail, the steps taken by me for the implementation of the project. You can read my blog on <a href='https://towardsdatascience.com/toxic-comment-classification-using-lstm-and-lstm-cnn-db945d6b7986'>Medium</a>.
+If you wish discover in detail, the steps taken by me for the implementation of the project. You can read my blog on <a href='https://towardsdatascience.com/toxic-comment-classification-using-lstm-and-deployment-using-aws-ec2-b84afe2b266b'>Medium</a>.
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
