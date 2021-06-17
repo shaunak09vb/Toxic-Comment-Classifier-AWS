@@ -5,7 +5,7 @@
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub release](https://img.shields.io/github/release/baishalidutta/Comments-Toxicity-Detection?include_prereleases&sort=semver)](https://github.com/shaunak09vb/Toxic-Comment-Classifier-AWS/releases/)
+[![GitHub release](https://img.shields.io/github/release/shaunak09vb/Toxic-Comment-Classifier-AWS?include_prereleases&sort=semver)](https://github.com/shaunak09vb/Toxic-Comment-Classifier-AWS/releases/)
 ![Python](https://img.shields.io/badge/python-v3.8.3+-blue.svg)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shaunak09vb/Toxic-Comment-Classifier-AWS/issues)
 
